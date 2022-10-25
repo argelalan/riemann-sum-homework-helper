@@ -1,12 +1,12 @@
-from math import cos
+import math
 
 
 def func(var):
-	f_prime = (3 * (var ** 2)) / (1 + (var ** 3))
-	return (1 + (f_prime ** 2)) ** (1 / 2)
+	return math.sin(var) # Change this to whatever function you need.
 
 
 def trapezoidal(var, var_delta, step_size):
+	"""Return estimate using the trapezoidal rule."""
 	result = 0
 	for i in range(step_size + 1):
 		if i == 0 or i == step_size:
@@ -19,6 +19,7 @@ def trapezoidal(var, var_delta, step_size):
 
 
 def midpoint(var, var_delta, step_size):
+	"""Return estimate using the midpoint method."""
 	result = 0
 	for i in range(step_size):
 		mid_var = var + (var_delta / 2)
@@ -29,6 +30,7 @@ def midpoint(var, var_delta, step_size):
 
 
 def simpsons(var, var_delta, step_size):
+	"""Return estimation using Simpson's rule."""
 	result = 0	
 	for i in range(step_size + 1):
 		if i == 0 or i == step_size:
@@ -42,8 +44,8 @@ def simpsons(var, var_delta, step_size):
 	return result * (var_delta / 3)
 
 
-upper_bound = int(input('Enter value for upper bound: '))
-lower_bound = int(input('Enter value for lower bound: '))
+upper_bound = float(input('Enter value for upper bound: '))
+lower_bound = float(input('Enter value for lower bound: '))
 n = int(input('Enter step size: '))
 
 delta = (upper_bound - lower_bound) / n
